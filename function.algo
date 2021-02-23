@@ -1,0 +1,25 @@
+FUNCTION dot_product(var v1 , v2 : ARRAY_OF INTEGER ; var ps : INTEGER) : INTEGER
+VAR
+    i : INTEGER ; 
+BEGIN
+    ps := 0 ;
+    FOR i FROM 0 TO 2 STEP 1  DO
+        ps = ps + v1[i]*v2[i] ;
+    END_FOR
+    RETURN ps ;
+END 
+
+ALGORITHM orth_vectors 
+VAR
+    v1 , v2 :ARRAY_OF INTEGER ;  
+    ps : INTEGER ; 
+BEGIN
+    read_array(v1) 
+    read_array(v2) 
+    ps:=dot_product(v1,v2) 
+    IF (ps = 0) THEN
+        write ("v1 and v2 are orthogonal") 
+        else 
+        write ("v1 and v2 are not orthogonal")
+    END_IF
+END

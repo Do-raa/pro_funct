@@ -1,0 +1,31 @@
+PROCEDURE dot_product(var v1 , v2 : ARRAY_OF INTEGER ; var ps : INTEGER)
+VAR
+    i:INTEGER ;
+BEGIN
+    ps :=0 
+    i :=0  
+    IF (v1.length <> v2.length) THEN
+        write("vectors with different size can not be calculated")
+    END_IF 
+    WHILE (i < v1.length) DO
+        ps := ps+ (v1[i]*v2[i]) 
+        i++
+    END_WHILE
+END 
+ALGORITHM orth-vectors 
+VAR
+    v1 , v2 :ARRAY_OF INTEGER [10] ;  
+    ps : INTEGER ; 
+    n1 , n2 : INTEGER ;
+BEGIN
+    n1 := read_size() 
+    read_array(n1,v1) 
+    n2 := read_size 
+    read_array(n2,v2) 
+    dot_product(v1,v2,ps) 
+    IF (ps = 0) THEN
+        write ("v1 and v2 are orthogonal") 
+        else 
+        write ("v1 and v2 are not orthogonal")
+    END_IF
+END
